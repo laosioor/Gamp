@@ -1,0 +1,41 @@
+/*
+#ff9e00
+#ff9100
+#ff8500
+#ff6d00
+#ff5400
+#00b4d8
+#0096c7
+#0077b6
+#023e8a
+#03045e
+*/
+body {
+    overflow-x:hidden;
+}
+:root{ 
+    --cor1:#ff9e00;
+    --cor2:#ff9100;
+    --cor3:#ff8500;
+    --cor4:#ff6d00;
+    --cor5:#ff5400;
+    --cor6:#00b4d8;
+    --cor7:#0096c7;
+    --cor8:#0077b6;
+    --cor9:#023e8a;
+    --cor10:#03045e;
+    --preto: #000000;
+    --branco: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+button, a, input[type="radio"], input[type="submit"]{
+    cursor: pointer;
+}
+
+

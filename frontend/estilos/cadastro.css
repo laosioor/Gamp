@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('global.css');
+
+body{
+   background-image: url(../imagens/ca.jpg); 
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.card{
+    background-color: #ffffff95;
+    padding: 30px;
+    border-radius: 2%;
+    box-shadow: 3px 3px 1px 0px #00000050;
+    width: 500px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--cor10);   
+}
+
+.label-float input{
+    width: 100%;
+    padding: 5px 5px;
+    display: inline-block;
+    border: 0;
+    border-bottom: 1px solid var(--cor10);
+    background-color: transparent;
+    outline: none; /*tira o contorno do campo de escrever*/
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    border-radius: 0;
+}
+
+.label-float{
+    position: relative;
+    padding-top: 13px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.label-float input:focus{
+    border-bottom: 2px solid var(--cor9);
+}
+
+.label-float label{
+    color: var(--cor10);
+    pointer-events: nome;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    transition: all .3s ease-out;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label{ /*configurações da letra de quando clica do campo de escrever*/
+    font-size: 13px;
+    margin-top: 0;
+    color: var(--cor9);
+}
+
+button{
+    background-color: transparent;
+    border-color: var(--cor10);
+    color: var(--cor10);
+    padding: 7px;
+    font-weight: bold;
+    font-size: 12pt;
+    margin-top: 20px;
+    border-radius: 28px;
+    cursor: pointer;
+    outline: none;
+    transition: all .4s ease-out;
+}
+
+button:hover{
+    background-color: var(--cor10);
+    color: var(--branco); 
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+
+.fa-eye{
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    color: var(--cor10);
+}

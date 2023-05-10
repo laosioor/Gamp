@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../estilos/login.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+	<link rel="shortcut icon" type="imagex/png" href="../imagens/controle-de-video-game.png">
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!--<script src="./javascript/BuscarUsuario.js"></script>-->
+
+</head>
+
+<body>
+
+
+<div class="container" id="container">
+
+	<div class="form-container sign-up-container">
+
+		<form id="formularioCadastroUsuario" name="criarUsuario" action="/registrar" method="POST">
+
+			<h1>Crie sua Conta</h1>
+
+			<input name="nome" id="IdNome" type="text" placeholder="Nome" />
+			<input name="email" id="IdEmail" type="email" placeholder="Endereço de Email" />
+			<input name="senha" id="IdSenha" type="password" placeholder="Senha" />
+			<button type="submit">Criar</button>
+
+		</form>
+
+	</div>
+	
+	<div class="form-container sign-in-container">
+		<form action="#" name="entrarUsuario" method="POST">
+			<h1>Entrar</h1>
+			<input type="email" placeholder="Endereço de Email" name="email" />
+			<input type="password" placeholder="Senha" name="senha" />
+			<button type="submit">Entrar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Bem-vindo de volta!</h1>
+				<p>Para continuar conectado, faça seu login</p>
+				<button class="ghost" id="signIn">Entrar na Conta</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Embarque nessa aventura intergalática!</h1>
+				<p>Preencha seus dados e crie já a sua conta</p>
+				<button type="submit" class="ghost" id="signUp"> Criar Conta</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../javascript/login.js" charset="utf-8"></script>
+<!--<script src="../javascript/InserirUsuario.js"></script>-->
+</body>
+
+</html>

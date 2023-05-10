@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../estilos/editarPerfil.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+	<link rel="shortcut icon" type="imagex/png" href="../imagens/controle-de-video-game.png">
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!--<script src="./javascript/BuscarUsuario.js"></script>-->
+
+</head>
+
+<body>
+
+
+<div class="container" id="container">
+
+	<div class="form-container sign-in-container">
+		<form action="/editarPerfil" enctype="multipart/form-data" method="POST">
+			<input type="file" name="foto" class="inputImg" id="inputImg" oninput="selecImg(this)">
+			<label for="inputImg"> 
+				<img class="imgPerfil" id="img" src="<%= ft %>" alt="">
+			</label>
+			<input type="text" placeholder="Nome do Perfil" name="nome" id="nome" required value="<%= nome %>"/>
+			<input type="text" placeholder="Bio do Perfil" name="bio" value="<%= bio %>"/>
+			<button type="submit">Editar</button>
+		</form>
+	</div>
+</div>
+
+<!--<script src="../javascript/InserirUsuario.js"></script>-->
+<script>
+	var img = document.getElementById("img");
+	selecImg = (e) => {
+		const [file] = e.files;
+		img.src = URL.createObjectURL(file);
+	}
+</script>
+</body>
+
+</html>

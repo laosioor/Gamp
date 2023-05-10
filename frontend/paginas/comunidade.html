@@ -1,0 +1,130 @@
+
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Gamp</title>
+    <link rel="stylesheet" href="../estilos/comunidade.css"> 
+    <link rel="stylesheet" href="../estilos/global.css">
+    <link rel="stylesheet" href="../estilos/nav.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    </head>
+    
+    <body>
+        
+        <header>
+            <div class="navDiv">
+            <nav class="mynav">
+                <ul>
+                    <div class="pesquisar">
+                        <li>
+                            <input type="text" placeholder="  Pesquisar.." name="search" id="pesquisaNome" onkeyup="enviaDados(this)">
+                              <button type="submit" class="lupinha"><i class="fa fa-search"></i></button>
+                            <section id="resultadosNome">
+        
+                            </section>
+                        </li>
+                        </div>
+                      <li>
+                        <a href="/home"><img src="../icones/casaCinza.png" width="70%" alt="Feed"></a>
+                      </li>
+                      <li>
+                        <a href="/comunidades"><img src="../icones/planetaCinza.png" width="70%" alt="Comunidades"></a>
+                      </li>
+                      <li>
+                        <a href="/perfil/<%= usuario %>"><img src="../icones/astronautaCinza.png" width="70%" alt="Perfil"></a>
+                        </li>
+                        <div class="sairdiv">
+                        <li>
+                            <a href="/sair" class="sair">Sair</a>
+                        </li>
+                        </div>
+                </ul>
+              </nav>
+            </div>
+        </header>
+    
+            <div class="container">
+                <div class="content">
+                  <div class="perfil">
+
+                    <% comuFt = comu.img; %>
+                    <% comuNome = comu.nome; %>
+                    <% descComu = comu.desc; %>
+                    <div class="imgPerfil">
+                        <img src="<%= comuFt %>">
+                    </div>
+                    <div class="perfilInfo">
+                    <div class="perfilNome">
+                        <h2><%= comuNome %></h2>
+                        <% if (cargo == "adm") { %>
+                        <!--<button onclick="location.assign('/editarPerfil')">Editar</button>-->
+                        <button type="submit">Participando</button>
+                        <% } else if (cargo == "membro") { %>
+                          <form action="/deixarComu/<%= comuNome %>" method="post">
+                          <button type="submit">Participando</button>
+                          </form>
+                        <% } else { %>
+                        <form action="/participar/<%= comuNome %>" method="post">
+                        <button type="submit">Participar</button>
+                        </form>
+                        <% } %>
+                    </div>
+                    <div class="perfilStats">
+                        <h4><%= total_Posts %></h4>
+                        <h4><%= membros %></h4>
+                    </div>
+                    <div class="perfilBio">
+                      <p><%= descComu %></p>
+                    </div>
+                    </div>
+                  </div>
+
+                  <% if (cargo == "membro" || cargo == "adm") { %>
+                        <div class="publicacao">
+                            <div class="post" id="postDiv">
+                                <form action="/criarPostComu/<%= comuNome %>" method="post">
+                                <div class="post_comu" onclick="document.getElementById('areapost').focus()">
+                                        <div class="textarea"><textarea id="areapost" name="comuPost" class="areapost" cols="30" rows="10" required onkeyup="selecionaJogo(document.getElementById('resultadosJogoE'))"></textarea></div>
+                                        <input type="submit" class="publicar" value="Publicar">
+                                </div>
+                                </form>	
+                            </div>
+                        </div>
+                  <% } %>
+
+                        <% posts.forEach(p => { %>
+                        <% u = p.usuario; %>
+                        <% c = p.comentario; %>
+                        <% i = p.imgUsuario; %>
+                        <div class="feed">
+                            <div class="post-publi">
+                            <img src="<%= i %>" onclick="location.assign('/perfil/<%= u %>')">
+                            <div class="post-info">
+                            <h3 onclick="location.assign('/perfil/<%= u %>')"><%= u %></h3>
+                            </div>
+                            </div>
+                            <div class="post-coment">
+                            <p><%= c %></p>
+                            </div>
+                            <div class="post-like">
+                              <span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
+                            </div>
+                        </div>
+                        <% }) %>
+
+                    </div>
+                </div>
+        <script src="../javascript/clicaCoracao.js"></script>
+        <script>
+          var content = document.getElementsByClassName("content")[0];
+      
+          var totalPublicacoes = document.getElementsByClassName("feed").length;
+          console.log(totalPublicacoes);
+          content.style.height = `${(totalPublicacoes * 300) + 480 + 20}px`;
+        </script>
+    </body>
+</html>

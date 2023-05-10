@@ -1,0 +1,155 @@
+@import url('global.css');
+
+.mynav {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.219);
+    z-index: 90;
+  }
+  .mynav ul {
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 14px;
+    background: rgb(255, 255, 255);
+    margin: 0;
+  }
+  
+
+  .mynav li:not(:last-child) {
+    margin-right: 30px;
+  }
+  .mynav a {
+    display: block;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    padding: 7px 15px;
+  }
+  
+  .target {
+    position: absolute;
+    border-bottom: 4px solid transparent;
+    z-index: -1;
+    transform: translateX(-60px);
+  }
+  
+  .mynav a,
+  .target {
+    transition: all .35s ease-in-out;
+  }
+
+  .sairdiv{
+    padding-left: 300px;
+  }
+  .sair{
+
+    color: black;
+    background-color: var(--cor5);
+    border-radius: 20px;
+    font-weight: bold;
+    transition-duration: .5s;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 15%;
+   
+} 
+.sair:hover{
+  color: white;
+  box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.124);   
+
+}
+
+.mynav .search-container {
+  float: right;
+}
+
+.mynav input[type=text] {
+  padding: 6px;
+  margin-top: 13px;
+  font-size: 17px;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.085);
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  outline: none;
+}
+
+.mynav input[type=text]:focus {
+  transition-duration: .5s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+}
+
+.pesquisar{
+  padding-right: 200px;
+}
+
+
+.lupinha {
+  float: right;
+  padding: 8px 8px;
+  margin-top: 13px;
+  margin-right: 16px;
+  background: var(--cor5);
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.lupinha:hover {
+  transition-duration: .5s;
+  color: white; 
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#resultadosNome {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-width: 210px;
+  width: 80%;
+  height: 0px;
+  background-color: #eee;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+hr {
+  position: absolute;
+  border-top: none;
+  border: 1px solid black;
+}
+
+p {
+  position: absolute;
+  margin-top: 10px;
+  font-size: 14px;
+  margin-left: -4px;
+}
+
+#resultadosNome a {
+  margin-left: -10px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.resultsP {
+  position: absolute;
+  margin-top: 10px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.clickable:hover {
+  color: var(--cor5);
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/nav.css">
+    <link rel="stylesheet" href="../estilos/global.css">
+    <link rel="stylesheet" href="../estilos/perfil.css">
+    <link rel="stylesheet" href="../estilos/estrelas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <title>Perfil</title>
+</head>
+<body>
+    <header>
+		<div class="navDiv">
+		<nav class="mynav">
+			<ul>
+				<div class="pesquisar">
+					<li>
+						<input type="text" placeholder="  Pesquisar.." name="search" id="pesquisaNome" onkeyup="enviaDados(this)">
+						  <button type="submit" class="lupinha"><i class="fa fa-search"></i></button>
+						<section id="resultadosNome">
+	
+						</section>
+					</li>
+					</div>
+				  <li>
+					<a href="/home"><img src="../icones/casaCinza.png" width="70%" alt="Feed"></a>
+				  </li>
+				  <li>
+					<a href="/comunidades"><img src="../icones/planetaCinza.png" width="70%" alt="Comunidades"></a>
+				  </li>
+				  <li>
+					<a href="/perfil/<%= usuarioAtual %>"><img src="../icones/astronautaCinza.png" width="70%" alt="Perfil"></a>
+					</li>
+					<div class="sairdiv">
+					<li>
+						<a href="/sair" class="sair">Sair</a>
+					</li>
+					</div>
+			</ul>
+		  </nav>
+		</div>
+	</header> 
+
+    <div class="container">
+        <div class="content">
+            <div class="perfil">
+                <div class="imgPerfil">
+                    <img src="<%= ft %>">
+                </div>
+                <div class="perfilInfo">
+                <div class="perfilNome">
+                    <h2><%= usuario %></h2>
+                    <% if (usuarioAtual == usuario) { %>
+                    <button onclick="location.assign('/editarPerfil')">Editar Perfil</button>
+                    <% } else { if (segue == "nao") {%>
+                    <form action="/seguir/<%= usuario %>" method="post">
+                    <button>Seguir</button>
+                    </form>
+                    <% } else { %>
+                    <form action="/deixarSeguir/<%= usuario %>" method="post">
+                    <button>Seguindo</button>
+                    </form>
+                    <% } } %>
+                </div>
+                <div class="perfilStats">
+                    <h4><%= total_Publi %></h4>
+                    <h4><%= totalSeguidores %></h4>
+                    <h4><%= totalSeguindo %></h4>
+                </div>
+                <div class="perfilBio">
+                  <p class="bioTexto"><%= bio %></p>
+                </div>
+                </div>
+              </div>
+
+              <% if (perfil_posts == false && perfil_resenhas == false) { %>
+                  <h2 class="semPub">Este usuário não fez nenhuma publicação ainda</h2>
+              <% } if (perfil_resenhas != false) { %>
+                
+               <% perfil_resenhas.forEach(resenha => { %>
+                <% imgUsuario = resenha.imgUsuario; %>
+                <% usuarioRes = resenha.usuario; %>
+                <% nomeJogoRes = resenha.nomeJogo; %>
+                <% notaRes = resenha.nota; %>
+                <% comentarioRes = resenha.comentario; %>
+                <% imgJogoRes = resenha.imgJogo; %>
+                <!-- resenha -->
+                <div class="feed">
+                  <div class="post-publi">
+                  <img src="<%= imgUsuario %>">
+                  <div class="post-info">
+                  <h3><%= usuarioRes %></a></h3>
+                  <h5><%= nomeJogoRes %> ● <label class="rating-label"><input
+                    class="rating"
+                    max="5"
+                    style="--fill:var(--cor5);--value:<%= notaRes %>"
+                    type="range"
+                    value="<%= notaRes %>"
+                    readonly></label></h5>
+                  </div>
+                  </div>
+                  <div class="post-coment">
+                  <p><%= comentarioRes %></p>
+                  </div>
+                  <div class="post-imagem">
+                    <img src="<%= imgJogoRes %>">
+                  </div>
+                  <div class="post-like">
+                    <span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
+                  </div>
+                </div>
+
+              <% }) } if (perfil_posts != false) { %>
+                <% perfil_posts.forEach(post => { %>
+                <% imgUsuario = post.imgUsuario; %>
+                <% usuarioPost = post.usuario; %>
+                <% nomeJogoPost = post.nomeJogo; %>
+                <% comentarioPost = post.comentario; %>
+                <% estadoPost = post.estado; %>
+                <% imgJogoPost = post.imgJogo %>
+                <!-- post -->
+                <div class="feed">
+                  <div class="post-publi">
+                  <img src="<%= imgUsuario %>">
+                  <div class="post-info">
+                  <h3><%= usuarioPost %></a></h3>
+                  <h5><%= nomeJogoPost %> ● <%= estadoPost %></h5>
+                  </div>
+                  </div>
+                  <div class="post-coment">
+                  <p><%= comentarioPost %></p>
+                  </div>
+                  <div class="post-imagem">
+                    <img src="<%= imgJogoPost %>">
+                  </div>
+                  <div class="post-like">
+                    <span id = heart><i class="fa fa-heart-o" id="coracao" aria-hidden="true" onclick="clicaCoracao(this)" ></i> </span>
+                    </div>
+                </div>
+                <% })} %>
+            </div>
+        </div>
+<script src="../javascript/clicaCoracao.js"></script>
+
+</body>
+</html>

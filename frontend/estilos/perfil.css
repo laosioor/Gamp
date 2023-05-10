@@ -1,0 +1,164 @@
+@charset "UFT-8";
+@import url('global.css');
+
+.container{
+  background-image: url(../imagens/capaaaa2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+body{
+  margin: 0;
+}
+.content{
+  margin-top: 30px; /* Add a top margin to avoid content overlay */
+  background: rgb(255, 255, 255);
+  min-width: 1100px;
+  max-width: 1100px;
+  height: 200vh;
+}
+
+.perfil {
+    display: flex;
+    margin-top: 3.5rem;
+    justify-content: left;
+    margin-left: 7rem;
+    padding: 50px;
+    margin-bottom: -100px;
+}
+
+.imgPerfil img {
+    border-radius: 100%;
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.perfilNome {
+    height: 3rem;
+    display: flex;
+    margin-left: 1rem;
+    align-items: center;
+}
+
+.perfilNome button {
+    margin-left: 1rem;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 5px;
+    border: 0;
+    background-color: #e6e5e1;
+}
+
+.perfilNome button:hover {
+    color: var(--cor5);
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+.perfilStats {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.perfilStats h4 {
+    padding-right: 50px;
+}
+
+.perfilBio {
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
+.perfilInfo {
+    padding-left: 30px;
+}
+
+
+.feed {
+    position: relative;
+    top: 100px;
+    width: 700px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 5vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+  }
+  
+  .post-publi {
+    display: flex;
+  }
+  
+  .post-publi > img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+  
+  .post-info{
+    margin-left: 5px;
+    margin-top: 10px;
+    line-break: strict;
+  }
+  
+  .post-info a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .post-coment {
+    width: 320px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+   
+  }
+  
+  .post-coment p {
+    margin-right: 5px;
+  }
+  
+  .post-imagem img {
+    object-fit: fill;
+    position: absolute;
+    left:48%;
+    width: 50%;
+    height: 80%;
+    bottom: 30px;
+    border-radius: 10px;
+  }
+  
+  .post-like {
+    position: relative;
+    top: 60%;
+    left: 20px;
+  }
+  
+  .fa-heart-o {
+    color: #cbcaca;
+    cursor: pointer;
+  }
+  
+  .fa-heart {
+    color: var(--cor5);
+    cursor: pointer;
+  }
+
+  .semPub {
+    margin-top: 100px;
+    margin-left: 25%;
+  }
+
+  .bioTexto {
+    position: absolute;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-left: 2px;
+  }

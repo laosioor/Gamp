@@ -1,0 +1,79 @@
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Comunidades</title>
+<link rel="stylesheet" href="../estilos/comunidades.css"> 
+<link rel="stylesheet" href="../estilos/nav.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<header>
+		<div class="navDiv">
+		<nav class="mynav">
+			<ul>
+				<div class="pesquisar">
+				<li>
+					<input type="text" placeholder="  Pesquisar.." name="search" id="pesquisaNome" onkeyup="enviaDados(this)">
+      				<button type="submit" class="lupinha"><i class="fa fa-search"></i></button>
+					<section id="resultadosNome">
+
+					</section>
+				</li>
+				</div>
+			  <li>
+				<a href="/home"><img src="../icones/casaCinza.png" width="70%" alt="Feed"></a>
+			  </li>
+			  <li>
+				<a href="/comunidades"><img src="../icones/planetaCinza.png" width="70%" alt="Comunidades"></a>
+			  </li>
+			  <li>
+				<a href="/perfil/<%= usuario %>"><img src="../icones/astronautaCinza.png" width="70%" alt="Perfil"></a>
+				</li>
+				<div class="sairdiv">
+				<li>
+					<a href="/sair" class="sair">Sair</a>
+				</li>
+				</div>
+			</ul>
+		  </nav>
+		</div>	
+	</header>
+
+		
+
+	<div class="comuContainer">
+		<div class="comuContent">
+			<h2 class="h2foda">Comunidades</h2>
+			<% comu.forEach(c => { %>
+			<% nome = c.nome; %>
+			<% img = c.img; %>
+			<% desc = c.desc; %>
+			<% tot = c.membros; %>
+
+			<div class="feed" onclick="location.assign('/comunidades/<%= nome %>')">
+				<div class="comu-flex">
+				<img src="<%= img %>" onclick="location.assign('/comunidades/<%= nome %>')">
+				<div class="comu-info">
+				<h3 onclick="location.assign('/comunidades/<%= nome %>')"><%= nome %></h3>
+				<h5><%= tot %> <% if (tot < 2) {%> Membro <% } else {%> Membros <%}%></h5>
+				<p><%= desc %></p>
+				</div>
+				</div>
+			</div>
+			<% }); %>
+		</div>
+	<button class="botaocomu" onclick="location.assign('/criarComunidade')">+</button>
+	</div>
+
+<script src="../javascript/pesquisaComu.js"></script>
+</body>
+
+       
+      
+    
